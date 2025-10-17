@@ -1,0 +1,89 @@
+// BookMyShow-inspired register page
+.register-container {
+	min-height: 70vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: none;
+}
+.register-card {
+	background: #181818;
+	padding: 2.5rem 2rem 2rem 2rem;
+	border-radius: 18px;
+	box-shadow: 0 4px 32px rgba(229,9,20,0.12);
+	min-width: 340px;
+	max-width: 95vw;
+	margin: 2rem 0;
+}
+.section-title {
+	color: #e50914;
+	font-size: 2rem;
+	font-weight: 700;
+	text-align: center;
+	margin-bottom: 2rem;
+}
+.register-form {
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
+}
+.form-group {
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+}
+label {
+	color: #fff;
+	font-weight: 500;
+	margin-bottom: 0.2rem;
+}
+input[type="text"], input[type="password"] {
+	padding: 0.7rem 1rem;
+	border-radius: 8px;
+	border: 1px solid #444;
+	background: #232323;
+	color: #fff;
+	font-size: 1rem;
+}
+.primary-btn {
+	background: #e50914;
+	color: #fff;
+	border: none;
+	border-radius: 24px;
+	padding: 0.7rem 1.5rem;
+	font-size: 1.1rem;
+	font-weight: 600;
+	cursor: pointer;
+	margin-top: 0.5rem;
+	transition: background 0.2s;
+}
+.primary-btn:hover {
+	background: #b0060f;
+}
+.error {
+	color: #e50914;
+	margin-top: 0.7rem;
+	text-align: center;
+	font-weight: 600;
+}
+.success {
+	color: #1ed760;
+	margin-top: 0.7rem;
+	text-align: center;
+	font-weight: 600;
+}
+.switch-link {
+	color: #b3b3b3;
+	text-align: center;
+	margin-top: 1.5rem;
+}
+.switch-link a {
+	color: #e50914;
+	text-decoration: underline;
+}
+@media (max-width: 500px) {
+	.register-card {
+		padding: 1.2rem 0.5rem;
+		min-width: unset;
+	}
+}

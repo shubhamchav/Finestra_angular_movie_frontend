@@ -1,0 +1,45 @@
+
+<div class="movie-list-container">
+	<div *ngIf="error" class="error">{{ error }}</div>
+
+	<div class="add-movie-form" *ngIf="isAdmin">
+		<button class="primary-btn" (click)="toggleAddForm()">{{ showAddForm ? 'Cancel' : 'Add Movie' }}</button>
+		<form *ngIf="showAddForm" (ngSubmit)="addMovie()">
+			<h3>Add Movie</h3>
+			<input type="text" [(ngModel)]="newMovie.title" name="title" placeholder="Title" required />
+			<input type="text" [(ngModel)]="newMovie.description" name="description" placeholder="Description" />
+			<input type="text" [(ngModel)]="newMovie.director" name="director" placeholder="Director" />
+			<input type="number" [(ngModel)]="newMovie.year" name="year" placeholder="Year" required />
+			<input type="file" (change)="onImageSelected($event)" accept="image/*" />
+			<button class="primary-btn" type="submit">Save</button>
+		</form>
+	</div>
+
+	<div class="movie-grid">
+			<div class="movie-card" *ngFor="let movie of movies" (click)="onMovieClick(movie)">
+			<div *ngIf="showEditForm !== movie.id">
+				<div class="movie-image-wrapper">
+					<img *ngIf="movie.movieImage" [src]="getMovieImageUrl(movie.movieImage)" alt="Movie Image" class="movie-image" />
+				</div>
+				<div class="movie-info">
+					<h3 class="movie-title">{{ movie.title }}</h3>
+					<span class="movie-year">({{ movie.year }})</span>
+					<p class="movie-description">{{ movie.description }}</p>
+				</div>
+						<div class="movie-actions">
+							<button *ngIf="!isAdmin" class="primary-btn" (click)="bookMovie(movie); $event.stopPropagation();">Book Now</button>
+							<button *ngIf="isAdmin" class="edit-btn" (click)="$event.stopPropagation(); toggleEditForm(movie)">Edit</button>
+							<button *ngIf="isAdmin" class="delete-btn" (click)="$event.stopPropagation(); deleteMovie(movie.id!)">Delete</button>
+						</div>
+			</div>
+			<form *ngIf="showEditForm === movie.id" (ngSubmit)="updateMovie()" class="edit-movie-form">
+				<input type="text" [(ngModel)]="editMovie.title" name="editTitle" required />
+				<input type="text" [(ngModel)]="editMovie.description" name="editDescription" />
+				<input type="text" [(ngModel)]="editMovie.director" name="editDirector" />
+				<input type="number" [(ngModel)]="editMovie.year" name="editYear" required />
+				<button class="primary-btn" type="submit">Update</button>
+				<button class="secondary-btn" type="button" (click)="showEditForm = null">Cancel</button>
+			</form>
+		</div>
+	</div>
+</div>

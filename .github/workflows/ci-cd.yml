@@ -1,0 +1,39 @@
+name: Movie Frontend CI/CD
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build movie-frontend
+        run: |
+          npm install
+          npm run build
+
+      - name: Docker build image
+        run: |
+          docker build -t movie-frontend:latest .
+
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            docker stop movie-frontend || true
+            docker rm movie-frontend || true
+            docker rmi movie-frontend:latest || true
+            # Pull or copy new image if needed
+            docker run -d --name movie-frontend -p 80:80 movie-frontend:latest

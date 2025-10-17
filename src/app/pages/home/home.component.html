@@ -1,0 +1,15 @@
+<div class="home-container">
+  <ng-container *ngIf="offerImages?.length; else fallback">
+    <app-slideshow [images]="offerImages"></app-slideshow>
+    <section class="recommended-section">
+      <h2 class="section-title">Recommended Movies</h2>
+      <app-movie-list></app-movie-list>
+    </section>
+  </ng-container>
+  <ng-template #fallback>
+    <div style="text-align:center; margin-top:2rem; color:#888;">
+      Welcome to the Home Page!<br />
+      (Slideshow or Recommended Movies failed to load.)
+    </div>
+  </ng-template>
+</div>

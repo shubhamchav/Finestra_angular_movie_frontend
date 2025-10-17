@@ -1,0 +1,84 @@
+.review-section-container form {
+	display: flex;
+	flex-direction: column;
+	gap: 0.7rem;
+	margin-top: 0.7rem;
+}
+
+.review-section-container input[type="text"] {
+	padding: 0.5rem 0.7rem;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	font-size: 1rem;
+	background: #fafbfc;
+	margin-bottom: 0.5rem;
+}
+
+.review-section-container button {
+	background: #1976d2;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	padding: 0.4rem 1.1rem;
+	font-size: 0.98rem;
+	cursor: pointer;
+	margin-right: 0.5rem;
+	transition: background 0.18s;
+}
+.review-section-container button[type="button"] {
+	background: #e0e0e0;
+	color: #222;
+}
+.review-section-container button:hover {
+	background: #1256a3;
+}
+.review-section-container button[type="button"]:hover {
+	background: #bdbdbd;
+}
+// Attractive review section styles
+.review-section-container {
+	margin-top: 2rem;
+	background: #f8f9fa;
+	border-radius: 10px;
+	padding: 1.5rem 1.5rem 1rem 1.5rem;
+	box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+}
+
+.review-section-container h3 {
+	margin-bottom: 1.2rem;
+	font-size: 1.3rem;
+	color: #222;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+}
+
+li {
+	background: #fff;
+	border-radius: 8px;
+	box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+	margin-bottom: 1.1rem;
+	padding: 1rem 1.2rem 0.7rem 1.2rem;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+.review-actions {
+	margin-top: 0.5rem;
+	display: flex;
+	gap: 0.5rem;
+}
+
+strong {
+	color: #1976d2;
+	font-weight: 600;
+	font-size: 1.05rem;
+}
+
+.error {
+	color: #b00020;
+	margin-bottom: 1rem;
+}

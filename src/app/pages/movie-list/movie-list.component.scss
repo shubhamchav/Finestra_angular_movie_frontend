@@ -1,0 +1,173 @@
+// BookMyShow-inspired modern UI
+.movie-list-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 2rem 1rem;
+}
+
+.section-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	color: #e50914;
+	margin-bottom: 2rem;
+	text-align: center;
+	letter-spacing: 1px;
+}
+
+.add-movie-form {
+	margin-bottom: 2rem;
+	text-align: center;
+}
+
+.movie-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 2rem;
+}
+
+.movie-card {
+	background: #181818;
+	border-radius: 16px;
+	box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+	overflow: hidden;
+	transition: transform 0.2s, box-shadow 0.2s;
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	min-height: 350px;
+	max-width: 100%;
+}
+.movie-card:hover {
+	transform: translateY(-8px) scale(1.03);
+	box-shadow: 0 8px 32px rgba(229,9,20,0.18);
+}
+
+.movie-image-wrapper {
+	width: 100%;
+	height: 200px;
+	background: #222;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+.movie-image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 0 0 16px 16px;
+	transition: opacity 0.5s;
+}
+.movie-info {
+	padding: 1.2rem 1rem 0.5rem 1rem;
+	flex: 1;
+}
+.movie-title {
+	font-size: 1.3rem;
+	font-weight: 600;
+	color: #fff;
+	margin: 0;
+}
+.movie-year {
+	color: #b3b3b3;
+	font-size: 1rem;
+	margin-left: 0.5rem;
+}
+.movie-description {
+	color: #e5e5e5;
+	font-size: 1rem;
+	margin-top: 0.5rem;
+	min-height: 48px;
+}
+.movie-actions {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.5rem;
+	margin-top: 1rem;
+}
+.primary-btn, .edit-btn, .delete-btn, .secondary-btn {
+	border: none;
+	outline: none;
+	padding: 0.6rem 1.2rem;
+	border-radius: 24px;
+	font-size: 1rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: background 0.2s, color 0.2s;
+}
+.primary-btn {
+	background: #e50914;
+	color: #fff;
+}
+.primary-btn:hover {
+	background: #b0060f;
+}
+.edit-btn {
+	background: #fff;
+	color: #e50914;
+	border: 2px solid #e50914;
+}
+.edit-btn:hover {
+	background: #e50914;
+	color: #fff;
+}
+.delete-btn {
+	background: #222;
+	color: #fff;
+	border: 2px solid #e50914;
+}
+.delete-btn:hover {
+	background: #e50914;
+	color: #fff;
+}
+.secondary-btn {
+	background: #b3b3b3;
+	color: #181818;
+}
+.secondary-btn:hover {
+	background: #fff;
+	color: #181818;
+}
+.edit-movie-form {
+	display: flex;
+	flex-direction: column;
+	gap: 0.7rem;
+	padding: 1rem;
+	background: #232323;
+	border-radius: 12px;
+	margin-top: 1rem;
+}
+input[type="text"], input[type="number"] {
+	padding: 0.5rem 1rem;
+	border-radius: 8px;
+	border: 1px solid #444;
+	background: #181818;
+	color: #fff;
+	font-size: 1rem;
+	margin-bottom: 0.5rem;
+}
+input[type="file"] {
+	margin-bottom: 0.5rem;
+}
+.error {
+	color: #e50914;
+	text-align: center;
+	margin-bottom: 1rem;
+	font-weight: 600;
+}
+@media (max-width: 1200px) {
+	.movie-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 700px) {
+	.movie-grid {
+		grid-template-columns: 1fr;
+	}
+	.movie-image-wrapper {
+		height: 150px;
+	}
+}

@@ -1,0 +1,13 @@
+<div class="movie-detail-container" *ngIf="movie">
+	<div class="movie-header">
+	<img class="movie-poster" [src]="getMovieImageUrl(movie.movieImage)" alt="Movie Poster" />
+		<div class="movie-info">
+			<h2>{{ movie.title }}</h2>
+			<p><strong>Year:</strong> {{ movie.year }}</p>
+			<p><strong>Director:</strong> {{ movie.director }}</p>
+			<p><strong>Description:</strong> {{ movie.description }}</p>
+		</div>
+	</div>
+	<app-review-section [movieId]="movie.id!" [movieTitle]="movie.title"></app-review-section>
+</div>
+<div *ngIf="error" class="error">{{ error }}</div>

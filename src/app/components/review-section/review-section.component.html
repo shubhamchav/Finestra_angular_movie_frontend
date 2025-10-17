@@ -1,0 +1,36 @@
+<div class="review-section-container">
+	<h3>Reviews</h3>
+	<div *ngIf="error" class="error">{{ error }}</div>
+		<ul>
+			<li *ngFor="let review of reviews">
+				<div *ngIf="editingReviewId !== review.id; else editForm">
+					  <strong>{{ review.username }}</strong>:<br />
+					{{ review.comment }}
+					<span *ngIf="isReviewAuthor(review)" class="review-actions">
+						<button (click)="startEdit(review)" type="button">Edit</button>
+						<button (click)="deleteReview(review)" type="button">Delete</button>
+					</span>
+				</div>
+				<ng-template #editForm>
+					<form (ngSubmit)="saveEdit()">
+						<input type="text" [(ngModel)]="comment" name="editComment" required />
+						<button type="submit">Save</button>
+						<button type="button" (click)="cancelEdit()">Cancel</button>
+					</form>
+				</ng-template>
+			</li>
+		</ul>
+		<div *ngIf="isLoggedIn() && !editingReviewId; else loginMsg">
+			<form (ngSubmit)="addReview()">
+				<h4>Add a Review</h4>
+				<div>
+					<label for="commentInput">Comment:</label>
+					<input id="commentInput" type="text" [(ngModel)]="comment" name="comment" required />
+				</div>
+				<button type="submit">Submit Review</button>
+			</form>
+		</div>
+	<ng-template #loginMsg>
+		<div style="margin-top:1rem; color:#888;">Sign in to add a review.</div>
+	</ng-template>
+</div>
